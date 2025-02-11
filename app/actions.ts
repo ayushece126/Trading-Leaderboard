@@ -9,7 +9,6 @@ export async function addUserToDatabase(walletAddress: string) {
 
     return { success: true, user };
   } catch (error) {
-    console.error("Error adding user to database:", error);
     return {
       success: false,
       error: error instanceof Error ? error.message : "Unknown error occurred",
@@ -24,7 +23,7 @@ export async function getUserData(walletAddress: string) {
       .from(users)
       .where(eq(users.walletAddress, walletAddress))
       .limit(1);
-    console.log(user);
+
     return { success: true, user };
   } catch (error) {
     console.error("Error fetching user data:", error);
@@ -65,7 +64,6 @@ export async function updateUserSocials(
 
     return { success: true, user };
   } catch (error) {
-    console.error("Error updating user socials:", error);
     return {
       success: false,
       error: error instanceof Error ? error.message : "Unknown error occurred",
